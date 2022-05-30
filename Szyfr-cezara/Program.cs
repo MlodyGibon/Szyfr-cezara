@@ -1,18 +1,28 @@
-﻿namespace szyfer
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("Zapisz wiadomość z wielkich liter");
+string informacja = Console.ReadLine();
+char[] achar = informacja.ToCharArray();
+int x;
+
+
+Console.WriteLine("Ilość przesunięcia");
+x = Int32.Parse(Console.ReadLine());
+
+    for (int i =0; i < achar.Length; i++)
 
 {
-    class Program
-
-
+    achar[i] = (char)((achar[i] + x));
+    if(achar[i] > 90)
     {
-        static void Main(string[] args)
-        {
-            foreach (var c in Console.ReadLine())
-            {
-                Console.Write(Convert.ToChar((c - 'a' + 1) % ('z' - 'a' + 1) + 'a'));
-            }
-            Console.WriteLine();
-            Console.ReadKey(true);
-        }
+        achar[i] = (char)((achar)[i] - 26);
     }
 }
+string zaszyfrowana = new string(achar);
+Console.WriteLine("Po zaszyfrowaniu");
+Console.WriteLine(zaszyfrowana);
+
+string rozwiazanie = new string(achar);
+Console.WriteLine("Po odszyfrowaniu");
+Console.WriteLine(informacja);
+
+Console.ResetColor();
